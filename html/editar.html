@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="../js/editar.js" type="module"></script>
+  <title>Editar agente</title>
+</head>
+
+<body>
+  <header class="container-fluid">
+    <div class="icono">
+      <a href="/index.html"> <p class='bx bx-home'></p></a>
+      <div class="texto">
+        <p>volver a inicio</p>
+      </div>
+    </div>
+    <h1>Crear agente</h1>
+  </header>
+  <main>
+    <div class="formulario-fondo-editar">
+      <div id="editar">
+        <div class="mb-3">
+          <h2>Selecciona el agente a editar</h2>
+        </div>
+        <div id="table-container"></div>
+      </div>
+      
+      <div id="formEdit" class="formulario-crear hide">
+        <form class="form-crear">
+          <div class="mb-3 datos">
+            <h2>Introduce los nuevos datos del agente</h2>
+          </div>
+          <div class="mb-3 datos">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name">
+          </div>
+          <div class="mb-3 datos">
+            <label for="lore">Historia:</label>
+            <textarea id="lore"></textarea>
+          </div>
+          <div class="mb-3 datos">
+            <label for="ability1">Habilidad 1:</label>
+            <input type="text" id="ability1">
+          </div>
+          <div class="mb-3 datos">
+            <label for="ability2">Habilidad 2:</label>
+            <input type="text" id="ability2">
+          </div>
+          <div class="mb-3 datos">
+            <label for="ability3">Habilidad 3:</label>
+            <input type="text" id="ability3">
+          </div>
+          <div class="mb-3 datos">
+            <label for="Definitiva">Definitiva:</label>
+            <input type="text" id="ultimate">
+          </div>
+          <div class="grupo-boton">
+            <button type="submit" id="enviar" class="btn btn-primary">Enviar</button>
+            <a href="/index.html" id="cancelar" class="btn btn-danger">Cancelar</a>
+          </div>
+        </form>
+      </div>
+ 
+      
+    </div>
+    <div class="imagenes">
+      <img src="../img/breach.png">
+      <img src="../img/raze.png">
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Fernando Benítez-cano vargas</p>
+    <p>Esto no es un producto oficial de Riot Games</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
