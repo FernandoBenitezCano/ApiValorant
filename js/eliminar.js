@@ -59,7 +59,6 @@ function showAllAction() {
 
               // Añade un evento de clic a cada fila
               row.addEventListener("click", () => {
-                handleRowClick(data["id"]);
                 id = parseInt(data["id"]);
                 deleteAction(id, row); // Pass the row to the deleteAction function
               });
