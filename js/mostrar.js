@@ -1,5 +1,4 @@
 import { DatabaseManager } from "../js/indexDb.js";
-
 const dbManager = DatabaseManager.getInstance();
 
 async function getAgents() {
@@ -13,17 +12,19 @@ async function getAgents() {
     if (response.ok) {
       agentsData.data.forEach(agent => {
         let agentDiv = document.createElement('div');
-        agentDiv.classList.add('card', 'mt-4', 'mb-4', 'mx-1', 'col-3', 'agente');
+        agentDiv.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'col-xl-2',
+        'card', 'mt-1', 'mb-1', 'mx-1', 'col-2', 'agente');
+        
 
         let image = document.createElement('img');
-        image.classList.add('card-img-top', 'img-fluid', 'img-agente', 'pt-2');
+        image.classList.add('card-img-top', 'img-fluid', 'img-agente', 'pt-2','rounded');
         image.src = agent.displayIcon;
 
         let cardBody = document.createElement('div');
         cardBody.classList.add('card-body', 'text-center', 'flex-grow-1');
 
-        let name = document.createElement('h5');
-        name.classList.add('card-title', 'mb-2');
+        let name = document.createElement('h3');
+        name.classList.add('card-title', 'mb-2','fw-bold');
         name.textContent = agent.displayName;
 
         let habilidadesDiv = document.createElement('div');
@@ -63,7 +64,8 @@ function showAllAction() {
 
         allData.forEach(data => {
           let agentDiv = document.createElement('div');
-          agentDiv.classList.add('card', 'mt-4', 'mb-4', 'mx-1', 'col-3', 'agente');
+          agentDiv.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'col-xl-2',
+          'card', 'mt-1', 'mb-1', 'mx-1', 'col-2', 'agente');
 
           let image = document.createElement('img');
           image.classList.add('card-img-top', 'img-fluid', 'img-agente', 'pt-2');
@@ -72,8 +74,8 @@ function showAllAction() {
           let cardBody = document.createElement('div');
           cardBody.classList.add('card-body', 'text-center', 'flex-grow-1');
 
-          let name = document.createElement('h5');
-          name.classList.add('card-title', 'mb-2');
+          let name = document.createElement('h3');
+          name.classList.add('card-title', 'mb-2','fw-bold');
           name.textContent = data.name;
 
           let habilidadesDiv = document.createElement('div');

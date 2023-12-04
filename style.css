@@ -15,8 +15,8 @@ body {
 }
 .contenido-mostrar,
 main {
+  height: 85.8%;
   background-image: url(img/fondo.png);
-  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +91,6 @@ h2 {
 
 footer,
 header {
-  height: 10vh;
   background-color: #FF4655;
   display: flex;
   justify-content: center;
@@ -164,13 +163,14 @@ textarea {
 }
 
 .img-agente {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 }
 
 .habilidad {
   height: 50px;
   width: 50px;
+  filter: invert(100%);
 }
 
 .habilidades {
@@ -184,7 +184,6 @@ textarea {
 
 .card {
   display: flex;
-  background-color: #a5a3a4;
   align-content: center;
   justify-content: center;
   align-items: center;
@@ -193,22 +192,6 @@ textarea {
 .mostrar {
   display: flex;
   flex-direction: column;
-}
-
-.oficiales h1 {
-
-  display: flex;
-  top: 10%;
-  margin-bottom: 175%;
-  color: white;
-}
-
-.icono{
-  position: absolute;
-  font-size: 40px;
-  top: 1%;
-  width: 20%;
-  right: 5%;
 }
 
 a{
