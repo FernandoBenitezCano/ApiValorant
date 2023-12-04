@@ -73,6 +73,12 @@ function showAllAction() {
               row.addEventListener("click", () => {
                 handleRowClick(data["id"]);
                 id=parseInt(data["id"]);
+                agentName.value=data["name"];
+                agentLore.value=data["lore"];
+                agentAbility1.value=data["ability1"];
+                agentAbility2.value=data["ability1"];
+                agentAbility3.value=data["ability1"];
+                agentUltimate.value=data["ultimate"];
               });
 
               tbody.appendChild(row);
@@ -95,6 +101,9 @@ function showAllAction() {
       console.error("Error al abrir la base de datos: " + error);
     });
 }
+
+
+
 
 
 // Función para manejar el clic en una fila
