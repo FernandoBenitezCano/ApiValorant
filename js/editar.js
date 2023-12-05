@@ -138,13 +138,15 @@ function updateAgent() {
 }
 
 function checkChanges() {
+  event.preventDefault();
   let isValid = isValidValues();
 
   if (isValid) {
     updateAgent();
   
   } else {
-    alert("No hay cambios.");
+    //alert("no se han realizado cambios en el agente");
+    window.location.href = 'avisoEditar.html';
   }
 }
 
