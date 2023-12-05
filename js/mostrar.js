@@ -34,6 +34,7 @@ async function getAgents() {
           if (ability.displayIcon) {
             let abilityImg = document.createElement('img');
             abilityImg.classList.add('img-fluid', 'rounded-circle', 'habilidad');
+            abilityImg.style.filter = "invert(100%)";
             abilityImg.src = ability.displayIcon;
             abilityImg.style.maxWidth = '40px';
             habilidadesDiv.appendChild(abilityImg);

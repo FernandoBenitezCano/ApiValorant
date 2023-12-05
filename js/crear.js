@@ -10,7 +10,7 @@ let agentAbility3=document.getElementById("ability3");
 let agentUltimate=document.getElementById("ultimate");
 
 
-sendBtn.addEventListener("click", insertAgent);
+sendBtn.addEventListener("click", checkValues);
 
 
 
@@ -28,7 +28,7 @@ function insertAgent() {
         dbManager.addData(data)
           .then(() => {
             dbManager.counter++;
-            alert("agente insertado correctamente");
+            window.location.href = 'confirmacionCrear.html';
           })
           .catch((error) => {
             console.error("Error addData: " + error);
@@ -38,3 +38,36 @@ function insertAgent() {
         console.error("Error open: " + error);
       });
   }
+
+
+
+  function checkValues() {
+    let isValid = isValidValues();
+  
+    if (isValid) {
+      insertAgent();
+    } else {
+
+      alert("Los campos no pueden estar vacíos");
+    }
+  }
+
+  function isValidValues() {
+    let res;
+    if (
+      agentName.value===""||
+      agentLore.value===""||
+      agentAbility1.value===""||
+      agentAbility2.value===""||
+      agentAbility3.value===""||
+      agentUltimate.value===""
+    ) {
+      res = false;
+    } else {
+      res = true;
+    }
+  
+    return res;
+  }
+
+

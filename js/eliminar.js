@@ -23,12 +23,7 @@ function showAllAction() {
             // Crea la fila de encabezado con los nombres de las propiedades (columnas)
             const headerRow = document.createElement("tr");
 
-            // Añade primero la columna del ID
-            const idTh = document.createElement("th");
-            idTh.textContent = "id";
-            headerRow.appendChild(idTh);
-
-            // Luego, agrega las demás columnas
+            // Agrega las demás columnas, excluyendo la columna "id"
             Object.keys(allData[0]).forEach((property) => {
               if (property !== "id") {
                 const th = document.createElement("th");
@@ -43,12 +38,7 @@ function showAllAction() {
             allData.forEach((data, index) => {
               const row = document.createElement("tr");
 
-              // Añade primero la celda del ID
-              const idTd = document.createElement("td");
-              idTd.textContent = data["id"];
-              row.appendChild(idTd);
-
-              // Luego, agrega las demás celdas
+              // Agrega las demás celdas, excluyendo la celda "id"
               Object.keys(data).forEach((property) => {
                 if (property !== "id") {
                   const td = document.createElement("td");
@@ -57,7 +47,7 @@ function showAllAction() {
                 }
               });
 
-              // Añade un evento de clic a cada fila
+              // Agrega un evento de clic a cada fila
               row.addEventListener("click", () => {
                 id = parseInt(data["id"]);
                 deleteAction(id, row); // Pass the row to the deleteAction function
@@ -93,8 +83,7 @@ function deleteAction(id, row) {
     .then(() => {
       dbManager.deleteData(id)
         .then(() => {
-          alert("Agentge eliminado correctamente");
-          location.reload();
+          window.location.href = 'confirmacionBorrar.html';
         })
         .catch((error) => {
           console.error("Error deleteData: " + error);
@@ -104,3 +93,5 @@ function deleteAction(id, row) {
       console.error("Error open: " + error);
     });
 }
+
+

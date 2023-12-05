@@ -11,8 +11,10 @@ let agentAbility3=document.getElementById("ability3");
 let agentUltimate=document.getElementById("ultimate");
 let sendBtn=document.getElementById("enviar");
 
+let name, lore, ability1, ability2, ability3, ultimate;
 
-sendBtn.addEventListener("click", updateAgent);
+
+sendBtn.addEventListener("click", checkChanges);
 
 function showAllAction() {
   const tableContainer = document.getElementById("table-container");
@@ -35,12 +37,7 @@ function showAllAction() {
             // Crea la fila de encabezado con los nombres de las propiedades (columnas)
             const headerRow = document.createElement("tr");
 
-            // Añade primero la columna del ID
-            const idTh = document.createElement("th");
-            idTh.textContent = "id";
-            headerRow.appendChild(idTh);
-
-            // Luego, agrega las demás columnas
+            // Agrega las demás columnas, excluyendo la columna "id"
             Object.keys(allData[0]).forEach((property) => {
               if (property !== "id") {
                 const th = document.createElement("th");
@@ -55,12 +52,7 @@ function showAllAction() {
             allData.forEach((data, index) => {
               const row = document.createElement("tr");
 
-              // Añade primero la celda del ID
-              const idTd = document.createElement("td");
-              idTd.textContent = data["id"];
-              row.appendChild(idTd);
-
-              // Luego, agrega las demás celdas
+              // Agrega las demás celdas, excluyendo la celda "id"
               Object.keys(data).forEach((property) => {
                 if (property !== "id") {
                   const td = document.createElement("td");
@@ -72,13 +64,20 @@ function showAllAction() {
               // Agrega un evento de clic a cada fila
               row.addEventListener("click", () => {
                 handleRowClick(data["id"]);
-                id=parseInt(data["id"]);
-                agentName.value=data["name"];
-                agentLore.value=data["lore"];
-                agentAbility1.value=data["ability1"];
-                agentAbility2.value=data["ability1"];
-                agentAbility3.value=data["ability1"];
-                agentUltimate.value=data["ultimate"];
+                id = parseInt(data["id"]);
+                name = data["name"];
+                lore= data["lore"];
+                ability1= data["ability1"];
+                ability2= data["ability2"];
+                ability3= data["ability3"];
+                ultimate= data["ultimate"];
+
+                agentName.value = name;
+                agentLore.value = lore;
+                agentAbility1.value =ability1;
+                agentAbility2.value = ability2;
+                agentAbility3.value = ability3;
+                agentUltimate.value = ultimate;
               });
 
               tbody.appendChild(row);
@@ -106,6 +105,7 @@ function showAllAction() {
 
 
 
+
 // Función para manejar el clic en una fila
 function handleRowClick(idValue) {
   divEdit.classList.add("hide");
@@ -126,7 +126,7 @@ function updateAgent() {
       }
       dbManager.updateData(id, data)
         .then(() => {
-          alert("agente actualizado con exito")
+          window.location.href = 'confirmacionEditar.html';
         })
         .catch((error) => {
           console.error("Error al actualizar elemento: " + error);
@@ -137,5 +137,41 @@ function updateAgent() {
     });
 }
 
+function checkChanges() {
+  let isValid = isValidValues();
+
+  if (isValid) {
+    updateAgent();
+  
+  } else {
+    alert("No hay cambios.");
+  }
+}
+
+
+function isValidValues() {
+  let newName = agentName.value.toLowerCase();
+  let newLore = agentLore.value.toLowerCase();
+  let newAbility1 = agentAbility1.value.toLowerCase();
+  let newAbility2 = agentAbility2.value.toLowerCase();
+  let newAbility3 = agentAbility3.value.toLowerCase();
+  let newUltimate = agentUltimate.value.toLowerCase();
+  let res;
+
+  if (
+    name.toLowerCase() === newName &&
+    lore.toLowerCase() === newLore &&
+    ability1.toLowerCase() === newAbility1 &&
+    ability2.toLowerCase() === newAbility2 &&
+    ability3.toLowerCase() === newAbility3 &&
+    ultimate.toLowerCase() === newUltimate
+  ) {
+    res = false;
+  } else {
+    res = true;
+  }
+
+  return res;
+}
 
 showAllAction();
